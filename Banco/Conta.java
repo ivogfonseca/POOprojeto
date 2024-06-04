@@ -66,4 +66,17 @@ public class Conta {
             System.out.println("Novo saldo: R$" + saldo);
         }
     }
+
+    public void transferencia(Conta recebida, double quantia){
+        if(this.saldo >= quantia){
+            saldo = saldo - quantia;
+            double newSaldo = quantia + getSaldo();
+            recebida.setSaldo(newSaldo);
+        } 
+            
+    }
+    public void exibirSaldo(){
+        System.out.println("Cliente: " + cliente.getNome());
+        System.out.println("Saldo: " + saldo);
+    }
 }    
