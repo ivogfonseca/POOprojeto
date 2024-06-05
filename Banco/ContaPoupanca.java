@@ -1,7 +1,7 @@
 public class ContaPoupanca extends Conta {
     private double taxaRendimento = 0.05;
     
-    public ContaPoupanca(int numeroAgencia, int numeroConta, double saldo, Cliente cliente) {
+    public ContaPoupanca(int numeroAgencia, int numeroConta, float saldo, Cliente cliente) {
         super(numeroAgencia, numeroConta, saldo, cliente);
         }
 

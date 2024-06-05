@@ -1,7 +1,7 @@
 public class ContaCorrente extends Conta {
     public double taxaManutencao = 50;
     
-    public ContaCorrente(int numeroAgencia, int numeroConta, double saldo, Cliente cliente) {
+    public ContaCorrente(int numeroAgencia, int numeroConta, float saldo, Cliente cliente) {
         super(numeroAgencia, numeroConta, saldo, cliente);
         //TODO Auto-generated constructor stub
     }

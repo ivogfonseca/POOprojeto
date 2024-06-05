@@ -1,11 +1,11 @@
 public class Conta {
     private int numeroAgencia;
     private int numeroConta;
-    private double saldo;
+    private float saldo;
     private Cliente cliente;
     
     
-    public Conta(int numeroAgencia, int numeroConta, double saldo, Cliente cliente) {
+    public Conta(int numeroAgencia, int numeroConta, float saldo, Cliente cliente) {
         this.numeroAgencia = numeroAgencia;
         this.numeroConta = numeroConta;
         this.saldo = saldo;
@@ -32,12 +32,12 @@ public class Conta {
     }
 
 
-    public double getSaldo() {
+    public float getSaldo() {
         return saldo;
     }
 
 
-    public void setSaldo(double saldo) {
+    public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
 
@@ -51,7 +51,7 @@ public class Conta {
         this.cliente = cliente;
     }
 
-    public void deposito(double quantia) {
+    public void deposito(float quantia) {
         if (quantia > 0) {
             saldo += quantia;
             System.out.println("Depósito de R$" + quantia);
@@ -59,7 +59,7 @@ public class Conta {
         }
     }
     
-    public void saque(double quantia){
+    public void saque(float quantia){
         if(quantia > 0 && saldo >= quantia){
             saldo-= quantia;
             System.out.println("Saque de R$" + quantia );
@@ -67,10 +67,10 @@ public class Conta {
         }
     }
 
-    public void transferencia(Conta recebida, double quantia){
+    public void transferencia(Conta recebida, float quantia){
         if(this.saldo >= quantia){
             saldo = saldo - quantia;
-            double newSaldo = quantia + getSaldo();
+            float newSaldo = quantia + getSaldo();
             recebida.setSaldo(newSaldo);
         } 
             
