@@ -70,7 +70,7 @@ public class Conta {
     public void transferencia(Conta recebida, float quantia){
         if(this.saldo >= quantia){
             saldo = saldo - quantia;
-            float newSaldo = quantia + getSaldo();
+            float newSaldo = quantia + recebida.getSaldo();
             recebida.setSaldo(newSaldo);
         } 
             

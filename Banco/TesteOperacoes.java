@@ -105,5 +105,71 @@ public class TesteOperacoes {
                 System.out.println(e.getMessage());
             }
         }
+        public void exibirSaldo() {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Digite o número da agência:");
+            int numAgencia = scanner.nextInt();
+            System.out.println("Digite o número da conta:");
+            int numConta = scanner.nextInt();
+    
+            Conta contaPesquisada = null;
+            for (int i = 0; i < listaContas.size(); i++) {
+                Conta conta = listaContas.get(i);
+                if (conta.getNumeroAgencia() == numAgencia && conta.getNumeroConta() == numConta) {
+                    contaPesquisada = conta;
+                    break;
+                }
+            }
+            System.out.println("Digite a quantidade de meses para simulação do saldo:");
+            int meses = scanner.nextInt();
+    
+            contaPesquisada.exibirSaldo();
+          }
+          public void apresentarMenu() {
+            Scanner scanner = new Scanner(System.in);
+            boolean continuar = true;
+    
+            while (continuar == true) {
+                System.out.println("Escolha uma opção:");
+                System.out.println("1 - Criar conta");
+                System.out.println("2 - Realizar operações");
+                System.out.println("3 - Exibir saldo");
+                System.out.println("0 - Sair");
+                int opcao = scanner.nextInt();
+    
+                switch (opcao) {
+                    case 1:
+                        criarConta();
+                        break;
+                    case 2:
+                        System.out.println("Digite a agência da conta de envio:");
+                        int numAgenciaEnviada = scanner.nextInt();
+                        System.out.println("Digite o número da conta de envio:");
+                        int numContaEnviada = scanner.nextInt();
+                        System.out.println("Digite a agência da conta de recebimento:");
+                        int numAgenciaRecebida = scanner.nextInt();
+                        System.out.println("Digite o número da conta de recebimento:");
+                        int numContaRecebida = scanner.nextInt();
+                        realizarOperacoes(numAgenciaEnviada, numContaEnviada, numAgenciaRecebida, numContaRecebida);
+                        break;
+                    case 3:
+                        exibirSaldo();
+                        break;
+                    case 0:
+                        continuar = false;
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Tente novamente.");
+                }
+    
+                if (continuar) {
+                    System.out.println("Deseja realizar outra operação? (s/n)");
+                    String resposta = scanner.next();
+                    if (resposta.equalsIgnoreCase("n")) {
+                        continuar = false;
+                    }
+                }
+            }
+        }
         
 }
